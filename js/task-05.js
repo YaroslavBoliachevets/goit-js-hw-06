@@ -3,6 +3,13 @@ const outputNameEl = document.querySelector('#name-output');
 
 inputEl.addEventListener('input', onInputChange);
 
+
 function onInputChange(event) {
-  outputNameEl.textContent = event.currentTarget.value;
+  
+  if (event.currentTarget.value.length != '') {
+    outputNameEl.textContent = event.currentTarget.value;
+    
+  } else {
+    outputNameEl.textContent = 'Anonymous';
+  }
 }

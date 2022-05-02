@@ -14,23 +14,39 @@ const images = [
 ];
 
 
-const imageEl = images.map(image => {
 
-  const itemEl = document.createElement('li');
-  itemEl.classList.add('gallery__item');
-
-  const imgEl = document.createElement('img');
-  imgEl.classList.add('gallery__img');
-  imgEl.src = `${image.url}`;
-  imgEl.alt = `${image.alt}`; 
-
-  itemEl.append(imgEl);
-  return itemEl;
-});
-
-console.log('', imageEl);
 const ulEl = document.querySelector('.gallery');
 
-ulEl.append(...imageEl);
-console.log('', ulEl);
+const imageEl = images.map(image => {
+  ulEl.insertAdjacentHTML('afterbegin', '<li class="gallery__item"><img class="gallery__img"></li>');
+
+  const itemEl = document.querySelector('.gallery__item');
+  const imgEl = document.querySelector('.gallery__img');
+  imgEl.src = `${image.url}`;
+  imgEl.alt = `${image.alt}`; 
+  console.log('', imgEl);
+  
+  return itemEl;
+})
+
+
+// const imageEl = images.map(image => {
+
+//   const itemEl = document.createElement('li');
+//   itemEl.classList.add('gallery__item');
+
+//   const imgEl = document.createElement('img');
+//   imgEl.classList.add('gallery__img');
+//   imgEl.src = `${image.url}`;
+//   imgEl.alt = `${image.alt}`; 
+
+//   itemEl.append(imgEl);
+//   return itemEl;
+// });
+
+// console.log('', imageEl);
+// const ulEl = document.querySelector('.gallery');
+
+// ulEl.append(...imageEl);
+// console.log('', ulEl);
 // document.body.appendChild(titleEl);
